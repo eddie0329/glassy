@@ -1,0 +1,20 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import PrimaryButton from "@/components/PrimaryButton";
+
+<Meta title="PrimaryButton" />
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { PrimaryButton },
+  template: `
+  <div>
+    <PrimaryButton />
+  </div>
+  `,
+});
+
+<Canvas>
+  <Story name="default">{Template.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="default" />
