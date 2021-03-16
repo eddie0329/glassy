@@ -11,7 +11,7 @@ module.exports = {
         'vue-style-loader',
         'css-loader',
         'less-loader',
-      ]
+      ],
     });
 
     config.resolve.alias["@"] = rootPath;
