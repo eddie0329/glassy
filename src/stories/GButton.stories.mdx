@@ -1,0 +1,78 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import GButton from "@/components/GButton";
+
+<Meta
+  title="GButton"
+  argTypes={{
+    color: {
+      name: "color",
+      type: { name: "string" },
+      control: { type: "text" },
+      defaultValue: "primary",
+      description: "Define button color",
+      table: {
+        defaultValue: {
+          summary: "primary",
+        },
+      },
+    },
+  }}
+/>
+
+export const TemplateDefault = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { GButton },
+  computed: {
+    colorStyles: () => [
+      "primary",
+      "secondary",
+      "success",
+      "danger",
+      "warning",
+      "info",
+      "white",
+      "dark",
+    ],
+  },
+  template: `
+  <div>
+    <div v-for="(color, index) in colorStyles" :key="index" style="margin-bottom: 20px;">
+      <g-button :color="color">Button</g-button>
+    </div>
+  </div>
+  `,
+});
+
+export const TemplateRound = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { GButton },
+  computed: {
+    colorStyles: () => [
+      "primary",
+      "secondary",
+      "success",
+      "danger",
+      "warning",
+      "info",
+      "white",
+      "dark",
+    ],
+  },
+  template: `
+  <div>
+    <div v-for="(color, index) in colorStyles" :key="index" style="margin-bottom: 20px;">
+      <g-button round :color="color">Button</g-button>
+    </div>
+  </div>
+  `,
+});
+
+<Canvas>
+  <Story name="default">{TemplateDefault.bind({})}</Story>
+</Canvas>
+
+<Canvas>
+  <Story name="round">{TemplateRound.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="default" />
