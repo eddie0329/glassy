@@ -10,12 +10,16 @@
 </template>
 
 <script>
+import { PRIMARY } from "@/constants";
+import { colorValidator } from "@/props-validator";
+
 export default {
   name: "GButton",
   props: {
     color: {
       type: String,
-      default: "primary",
+      default: PRIMARY,
+      validator: colorValidator,
     },
     round: {
       type: Boolean,
@@ -42,11 +46,7 @@ export default {
   .pointer();
   transition: all 0.2s ease-in-out;
   &:hover:enabled {
-    filter: brightness(85%);
-    -webkit-filter: brightness(85%);
-    -moz-filter: brightness(85%);
-    -o-filter: brightness(85%);
-    -ms-filter: brightness(85%);
+    .filter-b(85%);
   }
   &:disabled {
     .o(0.5);
@@ -67,7 +67,7 @@ export default {
 }
 
 .round {
-  border-radius: 8px;
+  .br(8px);
 }
 
 .primary {
