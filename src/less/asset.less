@@ -25,6 +25,22 @@
   color: @color;
 }
 
+.filter-b(@v) {
+  filter: brightness(@v);
+  -webkit-filter: brightness(@v);
+  -moz-filter: brightness(@v);
+  -o-filter: brightness(@v);
+  -ms-filter: brightness(@v);
+}
+
+.blur(@v) {
+  -webkit-filter: blur(@v);
+  -moz-filter: blur(@v);
+  -o-filter: blur(@v);
+  -ms-filter: blur(@v);
+  filter: blur(@v);
+}
+
 .color-shadow(@color) {
   box-shadow: 0px 0px 15px 3px @color, 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
