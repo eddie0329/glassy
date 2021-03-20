@@ -6,7 +6,6 @@
     :class="{ [color]: color, round }"
   >
     <slot></slot>
-    <div g-button-blur-border :class="{ round }"></div>
   </button>
 </template>
 
@@ -40,7 +39,6 @@ export default {
   .h(38px);
   .color(#ffffff);
   .p(5px, 20px);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   .pointer();
   transition: all 0.2s ease-in-out;
   &:hover:enabled {
@@ -75,58 +73,42 @@ export default {
 .primary {
   .bgc(@primary);
   .-a(@primary, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@primary);
-  }
+  .color-shadow(@primary);
 }
 .secondary {
   .bgc(@secondary);
   .-a(@secondary, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@secondary);
-  }
+  .color-shadow(@secondary);
 }
 .success {
   .bgc(@success);
   .-a(@success, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@success);
-  }
+  .color-shadow(@success);
 }
 .danger {
   .bgc(@danger);
   .-a(@danger, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@danger);
-  }
+  .color-shadow(@danger);
 }
 .warning {
   .bgc(@warning);
   .-a(@warning, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@warning);
-  }
+  .color-shadow(@warning);
 }
 .info {
   .bgc(@info);
   .-a(@info, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@info);
-  }
+  .color-shadow(@info);
 }
 .white {
   .color(rgba(0, 0, 0, 0.25));
   .bgc(@white);
   .-a(@white, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@white);
-  }
+  .color-shadow(@white);
 }
 .dark {
   .bgc(@dark);
   .-a(@dark, 3px);
-  [g-button-blur-border] {
-    .btn-shadow(@dark);
-  }
+  .color-shadow(@dark);
 }
 </style>
