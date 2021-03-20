@@ -47,15 +47,18 @@ export default {
   &:hover {
     opacity: 0.5;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 [g-button-blur-border] {
   .abs();
-  .l(-3.1);
-  .t(-3.1);
+  .l(0);
+  .t(0);
   .ib();
-  .w(107%);
-  .h(38px);
+  .w(100%);
+  .h(33px);
 }
 
 .round {
