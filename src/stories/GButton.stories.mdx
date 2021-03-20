@@ -63,12 +63,42 @@ export const TemplateRound = (args, { argTypes }) => ({
   `,
 });
 
+export const TemplateDisabled = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { GButton },
+  computed: {
+    colorStyles: () => [
+      "primary",
+      "secondary",
+      "success",
+      "danger",
+      "warning",
+      "info",
+      "white",
+      "dark",
+    ],
+  },
+  template: `
+  <div>
+    <div v-for="(color, index) in colorStyles" :key="index" style="margin-bottom: 20px;">
+      <g-button disabled round :color="color">
+      {{ controlText }}
+      </g-button>
+    </div>
+  </div>
+  `,
+});
+
 <Canvas>
   <Story name="default">{TemplateDefault.bind({})}</Story>
 </Canvas>
 
 <Canvas>
   <Story name="round">{TemplateRound.bind({})}</Story>
+</Canvas>
+
+<Canvas>
+  <Story name="disabled">{TemplateDisabled.bind({})}</Story>
 </Canvas>
 
 <ArgsTable story="default" />

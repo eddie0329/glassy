@@ -41,11 +41,18 @@ export default {
   .color(#ffffff);
   .p(5px, 20px);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
+  .pointer();
   transition: all 0.2s ease-in-out;
-  backdrop-filter: blur(100px);
-  &:hover {
-    opacity: 0.5;
+  &:hover:enabled {
+    filter: brightness(85%);
+    -webkit-filter: brightness(85%);
+    -moz-filter: brightness(85%);
+    -o-filter: brightness(85%);
+    -ms-filter: brightness(85%);
+  }
+  &:disabled {
+    .o(0.5);
+    cursor: default;
   }
   &:focus {
     outline: none;
