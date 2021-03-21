@@ -1,0 +1,42 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import GAlert from "@/components/GAlert";
+
+<Meta
+  title="GAlert"
+  argTypes={{
+    controlText: {
+      name: "controlText",
+      type: { name: "string" },
+      control: { type: "text" },
+      defaultValue: " Alerts !!!",
+    },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { GAlert },
+  computed: {
+    colorStyles: () => [
+      "primary",
+      "secondary",
+      "success",
+      "danger",
+      "warning",
+      "info",
+      "white",
+      "dark",
+    ],
+  },
+  template: `
+  <div>
+    <div v-for="(color, index) in colorStyles" :key="index" style="margin-bottom: 10px;">
+      <g-alert :color="color">{{ color }}{{ controlText }}</g-alert>
+    </div>
+  </div>
+  `,
+});
+
+<Canvas>
+  <Story name="default">{Template.bind({})}</Story>
+</Canvas>

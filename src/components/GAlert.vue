@@ -1,12 +1,7 @@
 <template>
-  <button
-    ref="gButton"
-    g-button
-    @click="$emit('click')"
-    :class="{ [color]: color, round }"
-  >
+  <div g-alert @click="$emit('click')" :class=[color]>
     <slot></slot>
-  </button>
+  </div>
 </template>
 
 <script>
@@ -14,43 +9,27 @@ import { PRIMARY } from "@/constants";
 import { colorValidator } from "@/props-validator";
 
 export default {
-  name: "GButton",
+  name: "GAlert",
   props: {
     color: {
       type: String,
       default: PRIMARY,
       validator: colorValidator,
-    },
-    round: {
-      type: Boolean,
-      default: false,
-    },
+    }
   },
 };
 </script>
 
 <style lang="less" scoped>
 @import "~@/less/asset";
-[g-button] {
+[g-alert] {
+  .flex();
+  align-items: center;
+  justify-content: center;
   font-family: "Poppins", sans-serif;
-  .h(38px);
+  .h(60px);
   .color(#ffffff);
   .pointer();
-  transition: all 0.2s ease-in-out;
-  &:hover:enabled {
-    .filter-b(85%);
-  }
-  &:disabled {
-    .o(0.5);
-    cursor: default;
-  }
-  &:focus {
-    outline: none;
-  }
-}
-
-.round {
-  .br(8px);
 }
 
 .primary {
@@ -94,4 +73,5 @@ export default {
   .-a(@dark, 3px);
   .color-shadow(@dark);
 }
+
 </style>
